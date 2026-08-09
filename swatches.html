@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Swatch Library — Vicky's Fashion</title>
+<meta name="description" content="Real fabric swatches photographed from the house books at Vicky's Fashion — true to colour. Browse individual cloths or the full sample books."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+  .sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem}
+  .sw{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);aspect-ratio:1;background:var(--paper-2)}
+  .sw img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .sw:hover img{transform:scale(1.06)}
+  .sw .code{position:absolute;left:0;right:0;bottom:0;padding:1rem .6rem .5rem;color:#fff;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+    background:linear-gradient(180deg,transparent,rgba(15,17,22,.72));opacity:0;transition:.3s}
+  .sw:hover .code{opacity:1}
+</style>
+</head>
+<body>
+<header class="site-header solid">
+  <div class="container bar">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="fabrics-suits.html">Suitings</a>
+      <a href="fabrics-shirts.html">Shirtings</a>
+      <a href="swatches.html" class="active">Swatch Library</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="studio.html">Design Studio</a>
+      <a href="about.html">Atelier</a>
+      <a class="btn btn--sm" href="contact.html">Book a Fitting</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">From Our Books</p>
+    <h1>The Swatch Library</h1>
+    <p>Real cloth, photographed from the sample books in the atelier and colour-corrected to stay true to the bolt. Tap any swatch to enlarge, or browse the full books below.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">A Line We Carry</p><h2 class="reveal">Fabrizio 60 · Italian Cotton Blend</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">120 Italian-designed cotton-blend colourways available to order at Vicky's Fashion. Tap any swatch to enlarge. <span data-fabcount></span></p></div>
+    <div class="sw-grid" data-fab-grid></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">A Line We Carry</p><h2 class="reveal">The Regatta Collection · 44000</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">A dobby cotton-blend suiting line (codes 44xxx) Vicky's Fashion carries. Browse the catalogue pages — tap any to enlarge and read the individual codes.</p></div>
+    <div class="masonry" data-regatta-lib style="columns:2"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">A Line We Carry</p><h2 class="reveal">Luiciano Fine &amp; Dandy Plus · 59600</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">Wool &amp; Lycra suiting with a subtle stretch (codes 596xxx, ~280g), distributed by Giovani Fabrics of Bangkok. Browse the book pages — tap to enlarge and read the individual codes.</p></div>
+    <div class="masonry" data-luiciano-lib style="columns:2"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">A Line We Carry</p><h2 class="reveal">JorgeCarli Suitings · JOR Series</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">Exclusive extrafine merino wool with a subtle stretch (JOR-001–JOR-054, ~270g). Browse the book pages — tap to enlarge and read the article codes.</p></div>
+    <div class="masonry" data-jorgecarli-lib style="columns:2"></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper-2)">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">Individual Cloths</p><h2 class="reveal">Captured swatches</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">A living library drawn from our books — checks, stripes, plaids, houndstooth, birdseye and more. <span data-swcount></span></p></div>
+    <div class="sw-grid" data-swatch-lib></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper-2)">
+  <div class="container">
+    <div class="center" style="margin-bottom:2.4rem"><p class="eyebrow reveal">The Full Books</p><h2 class="reveal">Browse every swatch</h2><div class="divider reveal" style="margin-inline:auto"></div>
+      <p class="lead reveal">Every sample book, photographed in full and true to colour — so no swatch is left out. Open any book to read the codes and see each cloth in context.</p></div>
+    <div class="masonry" data-books-lib></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--ink);color:var(--paper)">
+  <div class="container center">
+    <h2 class="reveal" style="color:#fff">Prefer to feel the cloth?</h2>
+    <p class="lead reveal" style="color:rgba(255,255,255,.82)">We keep the books in the atelier for you to handle in person.</p>
+    <p class="reveal"><a class="btn btn--brass" href="contact.html">Book a Fitting</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a><p style="max-width:34ch">Made-to-measure tailoring for men and women. Exclusive cloth, hand finishing, a fit that belongs to you alone.</p></div>
+      <div><h5>Explore</h5><a href="fabrics-suits.html">Suitings</a><a href="fabrics-shirts.html">Shirtings</a><a href="swatches.html">Swatch Library</a><a href="lookbook.html">Lookbook</a><a href="studio.html">Design Studio</a></div>
+      <div><h5>Atelier</h5><a href="about.html">Our Story</a><a href="about.html#process">The Process</a><a href="contact.html">Book a Fitting</a></div>
+      <div><h5>Visit</h5><a href="#">By appointment</a><a href="mailto:hello@vickysfashion.com">hello@vickysfashion.com</a><a href="#">By appointment</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year></span> Vicky's Fashion. All rights reserved.</span><span>Custom Tailoring &amp; Alterations</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/swatches-data.js"></script>
+<script src="assets/js/books-data.js"></script>
+<script src="assets/js/fabrizio-data.js"></script>
+<script src="assets/js/regatta-data.js"></script>
+<script src="assets/js/luiciano-data.js"></script>
+<script src="assets/js/jorgecarli-data.js"></script>
+<script>
+  (function(){
+    // JorgeCarli Suitings JOR series (book pages)
+    const jc=document.querySelector('[data-jorgecarli-lib]');
+    if(jc && typeof JORGECARLI_BOOK!=='undefined'){
+      jc.innerHTML=JORGECARLI_BOOK.map(x=>`
+        <div class="shot" data-lightbox data-full="${x.img}">
+          <img src="${x.thumb}" loading="lazy" alt="JorgeCarli Suitings ${x.cap}">
+          <div class="cap">JorgeCarli — ${x.cap}</div>
+        </div>`).join('');
+    }
+    // Luiciano Fine & Dandy Plus 59600 (book pages)
+    const lu=document.querySelector('[data-luiciano-lib]');
+    if(lu && typeof LUICIANO!=='undefined'){
+      lu.innerHTML=LUICIANO.map(x=>`
+        <div class="shot" data-lightbox data-full="${x.img}">
+          <img src="${x.thumb}" loading="lazy" alt="Luiciano 59600 ${x.range}">
+          <div class="cap">Luiciano 59600 — ${x.range}</div>
+        </div>`).join('');
+    }
+    // Regatta Collection 44000 (catalogue page-scans)
+    const rg=document.querySelector('[data-regatta-lib]');
+    if(rg && typeof REGATTA!=='undefined'){
+      rg.innerHTML=REGATTA.map((x,i)=>`
+        <div class="shot" data-lightbox data-full="${x.u}">
+          <img src="${x.u}" loading="lazy" alt="Regatta Collection 44000 catalogue page ${x.p}">
+          <div class="cap">Regatta 44000 — sheet ${i+1}</div>
+        </div>`).join('');
+    }
+    // Fabrizio 60 line
+    const fg=document.querySelector('[data-fab-grid]');
+    if(fg && typeof FABRIZIO!=='undefined'){
+      fg.innerHTML=FABRIZIO.map(x=>`
+        <div class="sw" data-lightbox data-full="${FAB_BASE+x.f}">
+          <img src="${FAB_BASE+x.f}" loading="lazy" alt="Fabrizio 60 ${x.c}">
+          <span class="code">${x.c}</span>
+        </div>`).join('');
+      const fc=document.querySelector('[data-fabcount]'); if(fc)fc.textContent=FABRIZIO.length+' colourways.';
+    }
+    // captured swatches
+    const grid=document.querySelector('[data-swatch-lib]');
+    if(grid && typeof CAPTURED_SWATCHES!=='undefined'){
+      grid.innerHTML=CAPTURED_SWATCHES.map((s,i)=>`
+        <div class="sw" data-lightbox data-full="${s.src}" style="background:${s.hex}">
+          <img src="${s.src}" loading="lazy" alt="Fabric swatch VF-C${String(i+1).padStart(3,'0')}">
+          <span class="code">VF-C${String(i+1).padStart(3,'0')}</span>
+        </div>`).join('');
+      const c=document.querySelector('[data-swcount]'); if(c)c.textContent=CAPTURED_SWATCHES.length+' cloths and counting.';
+    }
+    // books
+    const books=document.querySelector('[data-books-lib]');
+    if(books && typeof BOOKS!=='undefined'){
+      books.innerHTML=BOOKS.map((b,i)=>`
+        <div class="shot" data-lightbox data-full="assets/img/books/${b}.jpg">
+          <img src="assets/img/books/${b}_thumb.jpg" loading="lazy" alt="Sample book ${i+1}">
+          <div class="cap">Sample Book ${String(i+1).padStart(2,'0')}</div>
+        </div>`).join('');
+    }
+  })();
+</script>
+<script src="assets/js/fabrics-data.js"></script>
+<script src="assets/js/pattern.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

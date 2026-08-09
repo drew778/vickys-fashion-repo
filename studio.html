@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Design Studio — Vicky's Fashion</title>
+<meta name="description" content="Dress a men's or women's model in real cloth. Choose your suit and shirt fabrics, lining, piping and buttons and preview your commission live."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>.stage__toolbar{flex-wrap:wrap}.stage__toolbar .seg button{white-space:nowrap}</style>
+</head>
+<body>
+<header class="site-header solid">
+  <div class="container bar">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="fabrics-suits.html">Suitings</a>
+      <a href="fabrics-shirts.html">Shirtings</a>
+      <a href="swatches.html">Swatch Library</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="studio.html" class="active">Design Studio</a>
+      <a href="about.html">Atelier</a>
+      <a class="btn btn--sm" href="contact.html">Book a Fitting</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom:clamp(2rem,4vw,3rem)">
+  <div class="container">
+    <p class="eyebrow">The Design Studio</p>
+    <h1>Compose your commission</h1>
+    <p>Choose a men’s or women’s figure, then dress it in real cloth from our books. Set the lining, piping and buttons — the model updates as you go. When it’s right, send it to us as the starting point for your fitting.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)">
+  <div class="container">
+    <div class="studio">
+      <!-- STAGE -->
+      <div class="stage">
+        <div class="stage__toolbar">
+          <div class="seg" data-modeseg>
+            <button data-mode="photo" class="active">Photographic</button>
+            <button data-mode="illustrated">Illustrated</button>
+          </div>
+          <div class="seg">
+            <button data-gender="male" class="active">Men’s</button>
+            <button data-gender="female">Women’s</button>
+          </div>
+        </div>
+        <div data-stage></div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div>
+        <div class="controls" data-controls></div>
+        <div class="summary" data-summary>
+          <h4>Your Commission</h4>
+          <ul></ul>
+          <a class="btn btn--brass" data-request href="contact.html">Send to the Atelier</a>
+        </div>
+        <p class="muted" style="font-size:.82rem;margin-top:1rem">Switch between a photographic model and an illustrated figure using the toggle above. The selected cloth is mapped onto the model as a visual guide — final cloth, cut and colour are confirmed in person at the atelier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a><p style="max-width:34ch">Made-to-measure tailoring for men and women. Exclusive cloth, hand finishing, a fit that belongs to you alone.</p></div>
+      <div><h5>Explore</h5><a href="fabrics-suits.html">Suitings</a><a href="fabrics-shirts.html">Shirtings</a><a href="swatches.html">Swatch Library</a><a href="lookbook.html">Lookbook</a><a href="studio.html">Design Studio</a></div>
+      <div><h5>Atelier</h5><a href="about.html">Our Story</a><a href="about.html#process">The Process</a><a href="contact.html">Book a Fitting</a></div>
+      <div><h5>Visit</h5><a href="#">By appointment</a><a href="mailto:hello@vickysfashion.com">hello@vickysfashion.com</a><a href="#">By appointment</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year></span> Vicky's Fashion. All rights reserved.</span><span>Custom Tailoring &amp; Alterations</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/fabrics-data.js"></script>
+<script src="assets/js/pattern.js"></script>
+<script src="assets/js/studio.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

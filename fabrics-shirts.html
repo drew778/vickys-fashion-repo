@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Shirtings — Vicky's Fashion</title>
+<meta name="description" content="The shirting collection at Vicky's Fashion — poplins, twills, oxfords, end-on-end, stripes and checks in two-ply cotton."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<header class="site-header solid">
+  <div class="container bar">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="fabrics-suits.html">Suitings</a>
+      <a href="fabrics-shirts.html" class="active">Shirtings</a>
+      <a href="swatches.html">Swatch Library</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="studio.html">Design Studio</a>
+      <a href="about.html">Atelier</a>
+      <a class="btn btn--sm" href="contact.html">Book a Fitting</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">The House Books</p>
+    <h1>Shirtings</h1>
+    <p>Two-ply cottons in poplin, twill, royal oxford and herringbone, with a full range of stripes and checks. Every shirt is cut to your collar, cuff and posture.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filters></div>
+    <div class="fabric-grid" data-fabric-grid data-source="shirt"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container split">
+    <div class="split__media reveal"><img src="assets/img/details/shirts-folded.jpg" alt="Finished made-to-measure shirts"/><span class="tag">Cut to your collar</span></div>
+    <div class="reveal">
+      <p class="eyebrow">Made-to-measure Shirts</p>
+      <h2>A collar that finally sits right</h2>
+      <div class="divider"></div>
+      <p>Choose collar and cuff style, placket, monogram and mother-of-pearl buttons. We keep your pattern on file, so reordering a favourite is effortless.</p>
+      <a class="btn" href="contact.html">Start a Shirt Order</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--ink);color:var(--paper)">
+  <div class="container center">
+    <h2 class="reveal" style="color:#fff">Pair a shirt with your suit</h2>
+    <p class="lead reveal" style="color:rgba(255,255,255,.82)">Try any shirting against your chosen cloth in the Design Studio.</p>
+    <p class="reveal"><a class="btn btn--brass" href="studio.html">Open the Studio</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a><p style="max-width:34ch">Made-to-measure tailoring for men and women. Exclusive cloth, hand finishing, a fit that belongs to you alone.</p></div>
+      <div><h5>Explore</h5><a href="fabrics-suits.html">Suitings</a><a href="fabrics-shirts.html">Shirtings</a><a href="swatches.html">Swatch Library</a><a href="lookbook.html">Lookbook</a><a href="studio.html">Design Studio</a></div>
+      <div><h5>Atelier</h5><a href="about.html">Our Story</a><a href="about.html#process">The Process</a><a href="contact.html">Book a Fitting</a></div>
+      <div><h5>Visit</h5><a href="#">By appointment</a><a href="mailto:hello@vickysfashion.com">hello@vickysfashion.com</a><a href="#">By appointment</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year></span> Vicky's Fashion. All rights reserved.</span><span>Custom Tailoring &amp; Alterations</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/fabrics-data.js"></script>
+<script src="assets/js/pattern.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

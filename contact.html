@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Book a Fitting — Vicky's Fashion</title>
+<meta name="description" content="Book a made-to-measure fitting with Vicky's Fashion in By appointment."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<header class="site-header solid">
+  <div class="container bar">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="fabrics-suits.html">Suitings</a>
+      <a href="fabrics-shirts.html">Shirtings</a>
+      <a href="swatches.html">Swatch Library</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="studio.html">Design Studio</a>
+      <a href="about.html">Atelier</a>
+      <a class="btn btn--sm" href="contact.html">Book a Fitting</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Appointments</p>
+    <h1>Book a fitting</h1>
+    <p>Consultations are by appointment. Tell us a little about what you have in mind and we’ll be in touch to arrange a time.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <form class="form" action="mailto:hello@vickysfashion.com" method="post" enctype="text/plain" data-form>
+        <div class="row">
+          <div class="field"><label>First name</label><input name="First name" required></div>
+          <div class="field"><label>Last name</label><input name="Last name" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+          <div class="field"><label>Phone</label><input name="Phone"></div>
+        </div>
+        <div class="field"><label>I’m interested in</label>
+          <select name="Interest">
+            <option>A suit</option><option>A tuxedo / black tie</option><option>Women’s tailoring</option>
+            <option>Shirts</option><option>Tailored outerwear</option><option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label>Tell us about the commission</label><textarea name="Details" placeholder="Occasion, timeline, any cloth or details you already have in mind…"></textarea></div>
+        <button class="btn btn--brass" type="submit">Request Appointment</button>
+        <p class="muted" style="font-size:.82rem">Prefer email? Write to <a href="mailto:hello@vickysfashion.com" style="color:var(--brass)">hello@vickysfashion.com</a>.</p>
+      </form>
+    </div>
+    <div class="reveal">
+      <ul class="info-list">
+        <li><div class="k">Atelier</div><div class="v">By appointment</div></li>
+        <li><div class="k">Email</div><div class="v"><a href="mailto:hello@vickysfashion.com">hello@vickysfashion.com</a></div></li>
+        <li><div class="k">Hours</div><div class="v">By appointment, Tue–Sat</div></li>
+        <li><div class="k">Serving</div><div class="v">Your area &amp; beyond</div></li>
+      </ul>
+      <div class="split__media" style="margin-top:1.5rem"><img src="assets/img/lookbook/couple-ivory-tuxedo.jpg" alt="Vicky's Fashion tailoring"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L34 20 L20 37 L6 20 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M20 11 L26 20 L20 29 L14 20 Z" fill="currentColor"/></svg><span>Vicky's <b>Fashion</b></span></a><p style="max-width:34ch">Made-to-measure tailoring for men and women. Exclusive cloth, hand finishing, a fit that belongs to you alone.</p></div>
+      <div><h5>Explore</h5><a href="fabrics-suits.html">Suitings</a><a href="fabrics-shirts.html">Shirtings</a><a href="swatches.html">Swatch Library</a><a href="lookbook.html">Lookbook</a><a href="studio.html">Design Studio</a></div>
+      <div><h5>Atelier</h5><a href="about.html">Our Story</a><a href="about.html#process">The Process</a><a href="contact.html">Book a Fitting</a></div>
+      <div><h5>Visit</h5><a href="#">By appointment</a><a href="mailto:hello@vickysfashion.com">hello@vickysfashion.com</a><a href="#">By appointment</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year></span> Vicky's Fashion. All rights reserved.</span><span>Custom Tailoring &amp; Alterations</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/fabrics-data.js"></script>
+<script src="assets/js/pattern.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
