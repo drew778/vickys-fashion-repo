@@ -31,7 +31,8 @@
   const MODELS={
     male:{ base:"assets/img/studio/male_base.jpg", suit:"assets/img/studio/male_suit.png",
            shirt:"assets/img/studio/male_shirt.png", w:768, h:1152, garment:"Three-Piece Suit",
-           btnR:5, buttons:[[383,372],[383,405],[382,438],[369,468],           // waistcoat column
+           btnR:5, buttons:[[338,393],[325,453],                               // jacket front buttons
+             [383,372],[383,405],[382,438],[369,468],                            // waistcoat column
              [241,508,2.6],[244,516,2.6],[247,524,2.6],                          // left cuff
              [509,508,2.6],[506,516,2.6],[503,524,2.6]] },                       // right cuff
     female:{ base:"assets/img/studio/female_base.jpg", suit:"assets/img/studio/female_suit.png",
