@@ -72,12 +72,29 @@
       <div class="divider reveal" style="margin-inline:auto"></div>
       <p class="lead reveal">New commissions, fittings and cloth in motion — straight from the studio. Follow <a href="https://www.tiktok.com/@vickys.fashion.bk" target="_blank" rel="noopener">@vickys.fashion.bk</a> for the latest.</p>
     </div>
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vickys.fashion.bk" data-unique-id="vickys.fashion.bk" data-embed-type="creator" style="max-width:780px;min-width:288px;margin:0 auto">
-      <section><a target="_blank" rel="noopener" href="https://www.tiktok.com/@vickys.fashion.bk?refer=creator_embed">@vickys.fashion.bk</a></section>
-    </blockquote>
+    <div class="tt-wall" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">
+      <video src="assets/video/tiktok/7342906405940137217.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7311269318182898949.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7301519147488349445.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7297615301640768774.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7296740118176615686.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7295288385772522758.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7294209583533378821.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7294206374722964742.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7294206035642895622.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7293078411680042245.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7292899145675705605.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+      <video src="assets/video/tiktok/7292730549154614533.mp4#t=0.5" controls playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video>
+    </div>
     <p class="center reveal" style="margin-top:1.8rem"><a class="btn btn--brass" href="https://www.tiktok.com/@vickys.fashion.bk" target="_blank" rel="noopener">Follow on TikTok</a></p>
   </div>
-  <script async src="https://www.tiktok.com/embed.js"></script>
+  <script>
+    // one video at a time
+    document.addEventListener('play',e=>{
+      if(e.target.tagName!=='VIDEO')return;
+      document.querySelectorAll('.tt-wall video').forEach(v=>{ if(v!==e.target) v.pause(); });
+    },true);
+  </script>
 </section>
 
 <section class="section" style="background:var(--paper-2)">
