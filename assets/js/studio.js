@@ -21,21 +21,29 @@
   };
 
   /* ============ PHOTOGRAPHIC MODELS (real photos, live recolour) ============ */
+  const D="assets/img/studio/";
   const MODELS={
-    male:{ base:"assets/img/studio/male_base.jpg", suit:"assets/img/studio/male_suit.png",
-           shirt:"assets/img/studio/male_shirt.png", w:768, h:1152, garment:"Three-Piece Suit",
-           btnR:5, buttons:[[338,393],[325,453],                               // jacket front buttons
-             [383,372],[383,405],[382,438],[369,468],                            // waistcoat column
-             [241,508,2.6],[244,516,2.6],[247,524,2.6],                          // left cuff
-             [509,508,2.6],[506,516,2.6],[503,524,2.6]] },                       // right cuff
-    female:{ base:"assets/img/studio/female_base.jpg", suit:"assets/img/studio/female_suit.png",
-             shirt:"assets/img/studio/female_shirt.png", w:768, h:1152, garment:"Skirt Suit",
-             btnR:6, buttons:[[388,381]] }                                  // blazer button
+    male:{ w:768, h:1152, garment:"Three-Piece Suit", btnR:5, looks:{
+      front:{ base:D+"male_base.jpg", suit:D+"male_suit.png", shirt:D+"male_shirt.png",
+              buttons:[[338,393],[325,453],                                      // jacket front buttons
+                [383,372],[383,405],[382,438],[369,468],                         // waistcoat column
+                [241,508,2.6],[244,516,2.6],[247,524,2.6],                       // left cuff
+                [509,508,2.6],[506,516,2.6],[503,524,2.6]] },                    // right cuff
+      open:{ base:D+"male_open_base.jpg", suit:D+"male_open_suit.png", shirt:D+"male_open_shirt.png",
+             lining:D+"male_open_lining.png", piping:D+"male_open_piping.png",
+             buttons:[[388,343,4.5],[388,374,4.5],[387,405,4.5],[387,437,4.5],[386,468,4.5]] } } },
+    female:{ w:768, h:1152, garment:"Skirt Suit", btnR:6, looks:{
+      front:{ base:D+"female_base.jpg", suit:D+"female_suit.png", shirt:D+"female_shirt.png",
+              buttons:[[388,381]] },                                             // blazer button
+      open:{ base:D+"female_open_base.jpg", suit:D+"female_open_suit.png", shirt:D+"female_open_shirt.png",
+             lining:D+"female_open_lining.png", piping:D+"female_open_piping.png",
+             buttons:[] } } }
   };
   // preload model layers
   Object.keys(MODELS).forEach(g=>{
-    const M=MODELS[g]; M.img={};
-    ["base","suit","shirt"].forEach(k=>{ const im=new Image(); im.src=M[k]; M.img[k]=im; });
+    Object.values(MODELS[g].looks).forEach(L=>{ L.img={};
+      ["base","suit","shirt","lining","piping"].forEach(k=>{ if(!L[k])return;
+        const im=new Image(); im.src=L[k]; L.img[k]=im; }); });
   });
   function imgReady(im){
     return new Promise(res=>{ if(im.complete && im.naturalWidth) res(im);
@@ -50,36 +58,50 @@
     const im=new Image(); im.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
     tileCache[fab.id]=im; return imgReady(im);
   }
-  function compositeRegion(ctx, tileImg, shadeImg, M){
+  function compositeRegion(ctx, fill, shadeImg, M){
+    // fill: an image tile (repeated pattern) or a solid CSS colour string
     const off=document.createElement("canvas"); off.width=M.w; off.height=M.h; const o=off.getContext("2d");
-    const pat=o.createPattern(tileImg,"repeat"); o.fillStyle=pat; o.fillRect(0,0,M.w,M.h);
+    o.fillStyle=(typeof fill==="string")? fill : o.createPattern(fill,"repeat");
+    o.fillRect(0,0,M.w,M.h);
     o.globalCompositeOperation="multiply"; o.drawImage(shadeImg,0,0,M.w,M.h);
     o.globalCompositeOperation="destination-in"; o.drawImage(shadeImg,0,0,M.w,M.h);
     ctx.drawImage(off,0,0);
   }
   let photoToken=0;
   function renderPhoto(){
-    const my=++photoToken, g=state.gender, M=MODELS[g];
+    const my=++photoToken, g=state.gender, M=MODELS[g], L=M.looks[state.look]||M.looks.front;
     let cv=stage.querySelector("canvas[data-photo]");
     if(!cv){ stage.innerHTML=`<canvas data-photo width="${M.w}" height="${M.h}" style="width:100%;max-width:430px;height:auto;border-radius:12px;display:block;margin:0 auto"></canvas>`; cv=stage.querySelector("canvas[data-photo]"); }
     cv.width=M.w; cv.height=M.h;
     const ctx=cv.getContext("2d");
     const suit=fabricById(state.suit), shirt=fabricById(state.shirt);
-    Promise.all([imgReady(M.img.base),imgReady(M.img.suit),imgReady(M.img.shirt),tilePromise(suit),tilePromise(shirt)])
-      .then(([base,suitShade,shirtShade,suitTile,shirtTile])=>{
+    const layers=[imgReady(L.img.base),imgReady(L.img.suit),imgReady(L.img.shirt),tilePromise(suit),tilePromise(shirt)];
+    if(L.img.lining) layers.push(imgReady(L.img.lining));
+    if(L.img.piping) layers.push(imgReady(L.img.piping));
+    Promise.all(layers)
+      .then(([base,suitShade,shirtShade,suitTile,shirtTile,liningShade,pipingShade])=>{
         if(my!==photoToken) return;            // superseded by a newer selection
         ctx.clearRect(0,0,M.w,M.h);
         ctx.drawImage(base,0,0,M.w,M.h);
         compositeRegion(ctx, suitTile, suitShade, M);
         compositeRegion(ctx, shirtTile, shirtShade, M);
-        drawButtons(ctx, M);
+        if(liningShade){
+          const lin=LININGS.find(l=>l.id===state.lining).color;
+          compositeRegion(ctx, lin, liningShade, M);
+          if(pipingShade){
+            // "None" piping reads as a self-coloured lining edge
+            const pip=PIPINGS.find(p=>p.id===state.piping).color || lin;
+            compositeRegion(ctx, pip, pipingShade, M);
+          }
+        }
+        drawButtons(ctx, L, M);
       });
     updateSummary();
   }
-  function drawButtons(ctx, M){
+  function drawButtons(ctx, L, M){
     const col=(BUTTONS.find(b=>b.id===state.button)||{}).color||"#222";
     const dr=M.btnR||5;
-    (M.buttons||[]).forEach(([x,y,rr])=>{
+    (L.buttons||[]).forEach(([x,y,rr])=>{
       const r=rr||dr;
       const g=ctx.createRadialGradient(x-r*0.35, y-r*0.35, r*0.15, x, y, r);
       g.addColorStop(0, OPTPattern.shade(col,0.4));
@@ -158,6 +180,15 @@
     b.addEventListener('click',()=>{
       state.gender=b.getAttribute('data-gender');
       document.querySelectorAll('[data-gender]').forEach(x=>x.classList.toggle('active',x===b));
+      paint();
+    });
+  });
+
+  /* Look toggle (Front / Jacket Open) */
+  document.querySelectorAll('[data-look]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      state.look=b.getAttribute('data-look');
+      document.querySelectorAll('[data-look]').forEach(x=>x.classList.toggle('active',x===b));
       paint();
     });
   });
